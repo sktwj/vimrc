@@ -102,7 +102,7 @@ set hlsearch
 set incsearch 
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+"set lazyredraw 
 
 " For regular expressions turn magic on
 set magic
@@ -140,16 +140,9 @@ set shortmess=atI
 syntax enable 
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-"try
-"    colorscheme desert
-"catch
-"endtry
-
-set background=dark
+"set t_Co=256
+"let g:solarized_termcolors=256
+"set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -273,7 +266,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ \ %r%{getcwd()}%h\ \ \ \ %l\,\ %c
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ \ %r%{getcwd()}%h\ \ \ \ %l\,\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -418,4 +411,8 @@ set wildignore=*.o,*~,*.pyc,*.class
 
 " 离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"针对 Ctrl + ]对函数、元素进行跳转时控制是否进行选择：
+set cscopetag 
+
 
