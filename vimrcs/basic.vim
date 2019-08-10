@@ -34,6 +34,7 @@
 set history=500
 
 " Enable filetype plugins
+filetype on
 filetype plugin on
 filetype indent on
 
@@ -127,6 +128,9 @@ endif
 set nofoldenable
 
 set foldcolumn=1
+
+" remove 乌干达提示
+set shortmess=atI
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -393,3 +397,25 @@ autocmd BufReadPost *
 			\ if line("'\"")>0&&line("'\"")<=line("$") |
 			\	exe "normal g'\"" |
             \ endif
+"
+"==========================================
+" others 其它设置
+" ==========================================
+" vimrc文件修改之后自动加载, windows
+autocmd! bufwritepost _vimrc source %
+" vimrc文件修改之后自动加载, linux
+autocmd! bufwritepost .vimrc source %
+
+" 自动补全配置
+" 让Vi 的补全菜单行为与一般ID 一致 参考VimTip1228)
+set completeopt=longest,menu
+
+" 增强模式中的命令行自动完成操作
+set wildmenu
+set nu
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*.class
+
+" 离开插入模式后自动关闭预览窗口
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+

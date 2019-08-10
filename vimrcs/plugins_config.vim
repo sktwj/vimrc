@@ -321,10 +321,10 @@ let b:ale_fixers = ['autopep8', 'yapf']
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 "自定义error和warning图标
-let g:ale_sign_error = '✗'                                                                                                                                              
-let g:ale_sign_warning = '⚡ '
+let g:ale_sign_error = 'x'                                                                                                                                              
+let g:ale_sign_warning = '!'
 "在vim自带的状态栏中整合ale
-"let g:ale_statusline_format = ['✗ %d', '⚡  %d', '✔ OK']
+let g:ale_statusline_format = ['✗ %d', '⚡  %d', '✔ OK']
 "显示Linter名称,出错或警告等相关信息
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
